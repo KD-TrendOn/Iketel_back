@@ -28,6 +28,8 @@ DATABASE_URL=postgresql+asyncpg://postgres:password@localhost/iketel_db
 
 `pip install -r requirements.txt`
 
+`python create_db.py`
+
 `uvicorn main::app --reload`
 
 Now your API is running!
