@@ -7,6 +7,7 @@ class UserModel(BaseModel):
     username : str
     email : str
     password : str
+    disabled : bool
     date_created : datetime
     
     model_config = ConfigDict(
@@ -30,7 +31,7 @@ class UserCreateModel(BaseModel):
     )
 
 class Token(BaseModel):
-    acess_token: str
+    access_token: str
     token_type: str
 
 class TokenData(BaseModel):
@@ -40,6 +41,10 @@ class UserSchema(BaseModel):
     username: str
     email: Optional[str] = None
     disabled: Optional[bool] = None
+    date_created : Optional[datetime] = None
+    model_config = ConfigDict(
+        from_attributes=True,
+    )
 
 class UserInDB(UserSchema):
     hashed_password:str

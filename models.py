@@ -11,12 +11,11 @@ class User(Base):
     id int
     username str
     email str
-    password str
+    hashed_password str
     date_created datetime
     """
     __tablename__ = 'users'
-    id : Mapped[str] = mapped_column(primary_key=True)
-    username : Mapped[str] = mapped_column(unique=True)
+    username : Mapped[str] = mapped_column(primary_key=True)
     email: Mapped[str] = mapped_column(unique=True, nullable=True)
     hashed_password: Mapped[str] = mapped_column(nullable=False)
     disabled: Mapped[str] = mapped_column(nullable=True)
